@@ -26,8 +26,48 @@ Difficulty : Hard
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+int min(int a, int b)
+{
+	return (a < b) ? a : b;
+}
+
+int Pair(string str1, string str2, string &str)
+{
+	int max = INT_MIN;
+	int len1 = str1.length();
+	int len2 = str2.length();
+
+	for (int i = 1; i <= min(len1, len2); i++)
+	{
+		if (str1.compare(len1 - i, i, str2, 0, i) == 0)
+		{
+			if (max < i)
+			{
+				max = i;
+				str = str1 + str2.substr(i);
+			}
+		}
+	}
+
+	for (int i = 1; i <= min(len1, len2); i++)
+	{
+		if (str1.compare(0, i, str2, len2 - i, i) == 0)
+		{
+			if (max < i)
+			{
+				max = i;
+				str = str2 + str1.substr(i);
+			}
+		}
+	}
+
+	return max;
+}
 
 char * concat_4strings(char *s1, char *s2, char *s3, char *s4){
-	//Return the new string created.
-	return NULL;
+	int res = Pair(s1,s2, str);
+	int res1 = Pair(s1, s3, str);
+	int res = Pair(s1, s4, str);
+	int res = Pair(s2, s3, str);
+	int res = Pair(s2, s4, str);
 }
