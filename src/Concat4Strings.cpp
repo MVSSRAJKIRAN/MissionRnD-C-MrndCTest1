@@ -67,7 +67,8 @@ int Pair(string str1, string str2, string &str)
 char * concat_4strings(char *s1, char *s2, char *s3, char *s4){
 	int res = Pair(s1,s2, str);
 	int res1 = Pair(s1, s3, str);
-	int res = Pair(s1, s4, str);
-	int res = Pair(s2, s3, str);
-	int res = Pair(s2, s4, str);
+	int res2 = Pair(s1, s4, str);
+	int res3 = Pair(s2, s3, str);
+	int res4 = Pair(s2, s4, str);
+	int res5 = Pair(s3, s4, str);
 }
